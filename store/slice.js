@@ -2,7 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 
 
 const initialState = {
-    cryptos: []
+    cryptos: [],
+    search: "",
+    suggestion: null,
 }
 
 const cryptoSlice = createSlice({
@@ -11,6 +13,12 @@ const cryptoSlice = createSlice({
     reducers: {
         addCryptos(state, action){
             state.cryptos = action.payload;
+        },
+        addSearch(state, action) {
+            state.search = action.payload;
+        },
+        addSuggestion(state, action) {
+            state.suggestion = action.payload;
         }
     }
 })
@@ -18,6 +26,8 @@ const cryptoSlice = createSlice({
 
 
 
-export const { addCryptos } = cryptoSlice.actions;
+export const { addCryptos, addSearch, addSuggestion } = cryptoSlice.actions;
 export const getAllCryptos = (state) => state.cryptos.cryptos;
+export const getSearch = (state) => state.search.search;
+export const getSuggestion = (state) => state.suggestion.suggestion;
 export default cryptoSlice.reducer;

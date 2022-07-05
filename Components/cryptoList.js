@@ -1,16 +1,28 @@
 import React from 'react';
+import Image from 'next/image';
 import { useSelector } from 'react-redux';
-import { getAllCryptos } from '../store/slice';
+import { getAllCryptos, getSearch } from '../store/slice';
 
 const CryptoList = () => {
     const cryptoApi = useSelector(getAllCryptos);
+    const query = useSelector(getSearch);
+    const cryptoResult = cryptoApi.filter((data)=>
+        data.name.toLowerCase().includes(query.toLowerCase()) ||
+        data.symbol.toLowerCase().includes(query.toLowerCase())
+    )
 
     return(
-        cryptoApi.map((data, index) => (
-            <div key={index}>
-                {data.name}
-            </div>
-        ))
+        <div>
+            {
+            cryptoResult.map((data, index) => (
+                <div key={index}>
+                    <Image src={data.image} width={25} height={25} alt="crypto_icon"/>
+                    {data.name}
+                    {data.symbol}
+                </div>
+            ))
+            }
+        </div>
     )
 }
 
