@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addCryptos } from '/store/slice';
 import  cryptoApi  from '../pages/api/cryptoApi';
 import CryptoList from './cryptoList';
+import FilterList from './filterList';
 import SearchBox from './searchBox';
 
 
@@ -25,6 +26,7 @@ const Crypto = () => {
     return(
         <div>
             <SearchBox />
+            <FilterList />
             <CryptoList/>
         </div>
     )

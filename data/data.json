@@ -1,0 +1,20 @@
+{
+    "result": "Results",
+    "usd": "$",
+    "percent": "%",
+
+    "filterCryptos": [
+        {
+            "name": "low to high(price)",
+            "value": "1",
+            "name_bis": "high to low(price)",
+            "value_bis": "2"
+        },
+        {
+            "name": "low to high(cap)",
+            "value": "3",
+            "name_bis": "high to low(cap)",
+            "value_bis": "4"
+        }
+    ]
+}
