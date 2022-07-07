@@ -24,7 +24,6 @@ const FilterList = () => {
 
         const sortCryptoApi = [...cryptoApi].sort(sortTypes[sortBy]);
         dispatch(addCryptos(sortCryptoApi));
-        console.log(sortCryptoApi);
     }
 
     return (

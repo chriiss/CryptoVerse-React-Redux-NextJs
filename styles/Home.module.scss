@@ -1,0 +1,10 @@
+@use "styles" as variables;
+
+
+.green {
+    color: variables.$green;
+}
+
+.red {
+    color: variables.$red;
+}

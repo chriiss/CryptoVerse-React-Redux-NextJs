@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useSelector } from 'react-redux';
 import { getAllCryptos, getSearch } from '../store/slice';
 import dataJson from "../data/data.json";
+import Styles from '../styles/Home.module.scss'
 
 const CryptoList = () => {
     const cryptoApi = useSelector(getAllCryptos);
@@ -23,7 +24,7 @@ const CryptoList = () => {
                     {data.name}
                     {data.symbol}
                     {dataJson.usd}{data.current_price}
-                    {data.price_change_percentage_24h.toFixed(2)}{dataJson.percent}
+                    <span className={data.price_change_percentage_24h <= 0 ? Styles.red : Styles.green}>{data.price_change_percentage_24h.toFixed(2)}{dataJson.percent}</span>
                     {dataJson.usd}{data.market_cap}
                     {dataJson.usd}{data.total_volume}
                     {dataJson.usd}{data.ath}
