@@ -5,16 +5,32 @@
 
     "filterCryptos": [
         {
-            "name": "low to high(price)",
+            "label": "Price",
+            "name": "low to high",
             "value": "1",
-            "name_bis": "high to low(price)",
+            "name_bis": "high to low",
             "value_bis": "2"
         },
         {
-            "name": "low to high(cap)",
+            "label": "Cap",
+            "name": "low to high",
             "value": "3",
-            "name_bis": "high to low(cap)",
+            "name_bis": "high to low",
             "value_bis": "4"
+        },
+        {
+            "label": "Vol",
+            "name": "low to high",
+            "value": "5",
+            "name_bis": "high to low",
+            "value_bis": "6"
+        },
+        {
+            "label": "24h Percent",
+            "name": "low to high",
+            "value": "7",
+            "name_bis": "high to low",
+            "value_bis": "8"
         }
     ]
 }
