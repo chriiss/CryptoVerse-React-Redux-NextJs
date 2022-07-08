@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { addCryptos } from '/store/slice';
+import { addCryptos } from '/store/Slice';
 import  cryptoData  from '../pages/api/CryptoApi';
 import CryptoList from './CryptoList';
 import FilterList from './FilterList';
