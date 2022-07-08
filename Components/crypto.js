@@ -19,7 +19,7 @@ const Crypto = () => {
 
     useEffect(() => {
         getCryptoApi();
-    }, [])
+    })
 
 
 
