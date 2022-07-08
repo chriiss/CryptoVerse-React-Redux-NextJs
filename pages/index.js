@@ -2,7 +2,7 @@ import { Provider } from 'react-redux';
 import { store } from "../store/store";
 import Head from 'next/head'
 import Styles from '../styles/Home.module.scss'
-import Crypto from "../components/crypto.js";
+import Crypto from "../components/crypto";
 
 
 const Home = () => {
