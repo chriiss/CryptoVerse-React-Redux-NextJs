@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addCryptos, getAllCryptos } from "../store/slice";
-import dataJson from "../data/data.json";
+import { addCryptos, getAllCryptos } from "../store/Slice";
+import dataJson from "../data/Data.json";
 
 
 const FilterList = () => {

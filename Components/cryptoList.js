@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
-import { getAllCryptos, getSearch } from '../store/slice';
-import dataJson from "../data/data.json";
+import { getAllCryptos, getSearch } from '../store/Slice';
+import dataJson from "../data/Data.json";
 import Styles from '../styles/Home.module.scss'
 
 const CryptoList = () => {

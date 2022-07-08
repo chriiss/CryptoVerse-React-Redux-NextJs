@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Image from 'next/image';
 import { useSelector, useDispatch } from "react-redux";
-import { addSearch, addSuggestion, getSearch, getAllCryptos, getSuggestion } from "../store/slice";
-import dataJson from "../data/data.json";
+import { addSearch, addSuggestion, getSearch, getAllCryptos, getSuggestion } from "../store/Slice";
+import dataJson from "../data/Data.json";
 
 
 const SearchBox = () => {

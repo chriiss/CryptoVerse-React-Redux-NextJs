@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addCryptos } from '/store/slice';
-import  cryptoData  from '../pages/api/cryptoApi';
-import CryptoList from './cryptoList';
-import FilterList from './filterList';
-import SearchBox from './searchBox';
+import  cryptoData  from '../pages/api/CryptoApi';
+import CryptoList from './CryptoList';
+import FilterList from './FilterList';
+import SearchBox from './SearchBox';
 
 
 const Crypto = () => {
