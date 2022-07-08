@@ -2,6 +2,7 @@
     "result": "Results",
     "usd": "$",
     "percent": "%",
+    "last": "Last search",
 
     "filterCryptos": [
         {

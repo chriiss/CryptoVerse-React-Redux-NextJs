@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Image from 'next/image';
 import { useSelector, useDispatch } from "react-redux";
 import { addSearch, addSuggestion, getSearch, getAllCryptos, getSuggestion } from "../store/slice";
+import dataJson from "../data/data.json";
 
 
 const SearchBox = () => {
@@ -51,8 +52,7 @@ const SearchBox = () => {
                 </div>
             )}
             <div>
-                Last Search :
-                {history?.payload}
+                {dataJson.last}: {history?.payload}
             </div>
         </div>
     )
