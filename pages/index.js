@@ -12,7 +12,7 @@ const Home = () => {
       </Head>
       <main>
       <Provider store={store}>
-        <Crypto/>
+        <Crypto />
       </Provider>
       </main>
     </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'React';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import cryptoData from "../pages/api/CryptoApi";
 import { addCryptos } from "../store/Slice";
@@ -13,9 +13,14 @@ const Crypto = () => {
 
     const getCryptoData = async () => {
         await cryptoData
-        .then(result => dispatch(addCryptos(result.data)))
+        .then(result => {
+            dispatch(addCryptos(result.data))
+        })
     }
 
+    useEffect(() => {
+        getCryptoData();
+    })
 
     return (
         <div>
