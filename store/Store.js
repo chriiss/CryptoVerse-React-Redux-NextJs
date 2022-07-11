@@ -5,6 +5,7 @@ export const store = configureStore({
     reducer: {
         cryptos: cryptosReducer,
         search: cryptosReducer,
-        suggestion: cryptosReducer
+        suggestion: cryptosReducer,
+        fav: cryptosReducer
     }
 })

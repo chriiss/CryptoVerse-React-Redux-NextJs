@@ -5,13 +5,15 @@ import { getAllCryptos, getSearch } from '../store/Slice';
 import dataJson from "../data/Data.json";
 import Styles from '../styles/Home.module.scss'
 
-const CryptoList = () => {
+const CryptoList = (props) => {
     const cryptoApi = useSelector(getAllCryptos);
     const query = useSelector(getSearch);
     const cryptoResult = cryptoApi.filter((data)=>
         data.name.toLowerCase().includes(query.toLowerCase()) ||
         data.symbol.toLowerCase().includes(query.toLowerCase())
     )
+
+    const FavoriteComponent = props.favoritesComponent;
 
     return(
         <div>
@@ -28,6 +30,7 @@ const CryptoList = () => {
                     {dataJson.usd}{data.market_cap}
                     {dataJson.usd}{data.total_volume}
                     {dataJson.usd}{data.ath}
+                    <button type="button" role="button" onClick={() => props.handleFavoritesClick(data)}><FavoriteComponent /></button>
                 </div>
             ))}
         </div>
