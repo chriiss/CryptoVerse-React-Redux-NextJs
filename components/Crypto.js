@@ -7,14 +7,15 @@ import SearchBox from './SearchBox';
 import FilterList from './FilterList';
 import CryptoList from './CryptoList';
 import AddFavorite from './favoritesComponents/AddFavorite';
-import RemoveFavorite from './favoritesComponents/RemoveFavorite';
-import CryptoFavorite from './favoritesComponents/CryptoFavorite';
+import Link from 'next/link';
+import { useRouter } from 'next/router'
 
 
 
 const Crypto = () => {
     const dispatch = useDispatch();
     const favorite = useSelector(getFav);
+    const router = useRouter()
 
     const getCryptoData = async () => {
         await cryptoData
@@ -42,21 +43,14 @@ const Crypto = () => {
         const newFavoriteList = [...favorite, coin];
         dispatch(addFav(newFavoriteList));
         saveToCoinFav(newFavoriteList);
-    }
-
-    const removeFavoriteCoin = (coin) => {
-        const newFavoriteList = favorite.filter(
-			(favorite) => favorite.id !== coin.id
-		);
-        dispatch(addFav(newFavoriteList));
-        saveToCoinFav(newFavoriteList);
+        router.push('/favoritePage')
     }
 
     return (
         <div>
+            <Link href="/favoritePage">Favorite</Link>
             <SearchBox />
             <FilterList />
-            <CryptoFavorite favoritesComponent={RemoveFavorite} handleFavoritesClick={removeFavoriteCoin} />
             <CryptoList favoritesComponent={AddFavorite} handleFavoritesClick={addFavoriteCoin} />
         </div>
     )

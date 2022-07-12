@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Image from 'next/image';
 import { useSelector, useDispatch } from "react-redux";
 import { addSearch, addSuggestion, addHistory, getSearch, getAllCryptos, getSuggestion, getHistory } from "../store/Slice";
