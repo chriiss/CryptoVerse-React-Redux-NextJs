@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from 'next/image';
 import { useSelector, useDispatch } from "react-redux";
-import { addSearch, addSuggestion, getSearch, getAllCryptos, getSuggestion } from "../store/Slice";
+import { addSearch, addSuggestion, addHistory, getSearch, getAllCryptos, getSuggestion, getHistory } from "../store/Slice";
 import dataJson from "../data/Data.json";
 
 
@@ -9,13 +9,28 @@ const SearchBox = () => {
     const query = useSelector(getSearch);
     const cryptoApi = useSelector(getAllCryptos);
     const suggestions = useSelector(getSuggestion);
+    const history = useSelector(getHistory);
     const dispatch = useDispatch();
-    const [history, setHistory] = useState();
+
+
+    useEffect(() => {
+		try {
+            const coinHistory = JSON.parse(localStorage.getItem('search-history'));
+            dispatch(addHistory((coinHistory.slice(-5))));
+        }catch(e){}
+	}, []);
+
+	const saveToSearch = (items) => {
+		localStorage.setItem('search-history', JSON.stringify(items));
+	};
 
 
     const filterSuggest = (text) => {
-        saveToLocalStorage(dispatch(addSuggestion([])));
-        saveToLocalStorage(dispatch(addSearch(text)));
+        dispatch(addSuggestion([]));
+        dispatch(addSearch(text));
+        const newSearchHistory = [...history, text];
+        dispatch(addHistory(newSearchHistory.slice(-5)));
+        saveToSearch(newSearchHistory);
     }
     const filterSearch = (text) => {
         let matches = [];
@@ -25,20 +40,9 @@ const SearchBox = () => {
                return data.name.match(regex) || data.symbol.match(regex);
             })
         }
-        saveToLocalStorage(dispatch(addSuggestion(matches)));
-        saveToLocalStorage(dispatch(addSearch(text)));
+        dispatch(addSuggestion(matches));
+        dispatch(addSearch(text));
     }
-
-    useEffect(() => {
-		const history = window.localStorage.getItem('search-history');
-        if (history) {
-            setHistory(JSON.parse(history));
-        }
-	}, []);
-
-	const saveToLocalStorage = (items) => {
-		localStorage.setItem('search-history', JSON.stringify(items));
-	};
 
     return (
         <div>
@@ -52,7 +56,10 @@ const SearchBox = () => {
                 </div>
             )}
             <div>
-                {dataJson.last}: {history?.payload}
+                {dataJson.last}
+                {history.map((item, i) =>
+                    <div key={i}>{item}</div>
+                )}
             </div>
         </div>
     )
