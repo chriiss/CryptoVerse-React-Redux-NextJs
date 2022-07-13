@@ -1,17 +1,25 @@
 import React from 'react';
-import { useSelector } from "react-redux";
 import Image from 'next/image';
+import { useSelector } from 'react-redux';
+import { getAllCryptos, getSearch } from '../../store/Slice';
 import dataJson from "../../data/Data.json";
-import { getFav } from '../../store/Slice';
-import Styles from '../../styles/Home.module.scss'
+import Styles from '../../styles/Home.module.scss';
 
-const CryptoFavorite = (props) => {
+const CryptoList = (props) => {
+    const cryptoApi = useSelector(getAllCryptos);
+    const query = useSelector(getSearch);
+    const cryptoResult = cryptoApi.filter((data)=>
+        data.name.toLowerCase().includes(query.toLowerCase()) ||
+        data.symbol.toLowerCase().includes(query.toLowerCase())
+    )
+
     const FavoriteComponent = props.favoritesComponent;
-	const favorite = useSelector(getFav);
 
     return(
         <div>
-            {favorite.map((data, index) => (
+            <div>{cryptoResult.length} {dataJson.result}</div>
+            {
+            cryptoResult.map((data, index) => (
                 <div key={index}>
                     { data.image && (<Image src={data.image} width={25} height={25} alt="crypto_icon"/>)}
                     {data.market_cap_rank}
@@ -19,6 +27,8 @@ const CryptoFavorite = (props) => {
                     {data.symbol}
                     {dataJson.usd}{data.current_price}
                     <span className={data.price_change_percentage_24h <= 0 ? Styles.red : Styles.green}>{data.price_change_percentage_24h?.toFixed(2)}{dataJson.percent}</span>
+                    {dataJson.usd}{data.market_cap}
+                    {dataJson.usd}{data.total_volume}
                     {dataJson.usd}{data.ath}
                     <button type="button" role="button" onClick={() => props.handleFavoritesClick(data)}><FavoriteComponent /></button>
                     <div onClick={() =>  props.handleIdClick(data)}>More</div>
@@ -28,4 +38,4 @@ const CryptoFavorite = (props) => {
     )
 }
 
-export default CryptoFavorite;
+export default CryptoList;

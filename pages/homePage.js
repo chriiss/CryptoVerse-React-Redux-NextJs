@@ -1,4 +1,4 @@
-import Crypto from "../components/Crypto";
+import Crypto from "../components/cryptoComponents/Crypto";
 
 const HomePage = () => {
     return (

@@ -7,6 +7,7 @@ export const store = configureStore({
         search: cryptosReducer,
         suggestion: cryptosReducer,
         fav: cryptosReducer,
-        history: cryptosReducer
+        history: cryptosReducer,
+        detail: cryptosReducer
     }
 })
