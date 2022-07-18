@@ -33,5 +33,15 @@
             "name_bis": "high to low",
             "value_bis": "8"
         }
+    ],
+    "navbarComponent": [
+        {
+            "name": "Home",
+            "link": "/"
+        },
+        {
+            "name": "Favorite",
+            "link": "/favoritePage"
+        }
     ]
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
+import UseFormatCount from '../../hooks/UseFormatCount';
 import { getAllCryptos, getSearch } from '../../store/Slice';
 import dataJson from "../../data/Data.json";
 import Styles from '../../styles/Home.module.scss';
@@ -27,9 +28,9 @@ const CryptoList = (props) => {
                     {data.symbol}
                     {dataJson.usd}{data.current_price}
                     <span className={data.price_change_percentage_24h <= 0 ? Styles.red : Styles.green}>{data.price_change_percentage_24h?.toFixed(2)}{dataJson.percent}</span>
-                    {dataJson.usd}{data.market_cap}
-                    {dataJson.usd}{data.total_volume}
-                    {dataJson.usd}{data.ath}
+                    {dataJson.usd}{UseFormatCount(data.market_cap)}
+                    {dataJson.usd}{UseFormatCount(data.total_volume)}
+                    {dataJson.usd}{UseFormatCount(data.ath)}
                     <button type="button" role="button" onClick={() => props.handleFavoritesClick(data)}><FavoriteComponent /></button>
                     <div onClick={() =>  props.handleIdClick(data)}>More</div>
                 </div>

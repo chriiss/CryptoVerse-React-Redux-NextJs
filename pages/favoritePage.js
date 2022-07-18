@@ -5,6 +5,7 @@ import CryptoFavorite from "../components/favoritesComponents/CryptoFavorite";
 import RemoveFavorite from "../components/favoritesComponents/RemoveFavorite";
 import { addFav, addDetail, getFav } from "../store/Slice";
 import axios from 'axios';
+import Navbar from '../components/navbarComponents/Navbar';
 
 
 
@@ -38,6 +39,7 @@ const FavoritePage = () => {
     }
     return (
         <div>
+            <Navbar />
             <CryptoFavorite favoritesComponent={RemoveFavorite} handleFavoritesClick={removeFavoriteCoin} handleIdClick={(id)=> getCryptoDetails(id.id)} />
         </div>
     )

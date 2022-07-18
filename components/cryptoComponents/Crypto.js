@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { cryptoData } from "../../pages/api/CryptoApi";
 import { addCryptos, addFav, addDetail, getFav  } from "../../store/Slice";
@@ -6,7 +6,6 @@ import SearchBox from '../searchBoxComponent/SearchBox';
 import FilterList from '../filterComponent/FilterList';
 import CryptoList from '../cryptoComponents/CryptoList';
 import AddFavorite from '../favoritesComponents/AddFavorite';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 
@@ -48,7 +47,6 @@ const Crypto = () => {
 
     return (
         <div>
-            <Link href="/favoritePage">Favorite</Link>
             <SearchBox handleIdClick={(id)=> getCryptoDetails(id.toLowerCase().replaceAll(' ', '-'))} />
             <FilterList />
             <CryptoList favoritesComponent={AddFavorite} handleFavoritesClick={addFavoriteCoin} handleIdClick={(id)=> getCryptoDetails(id.id)} />

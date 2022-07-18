@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
+import UseFormatCount from '../../hooks/UseFormatCount';
 import { getDetail } from '../../store/Slice';
 import dataJson from "../../data/Data.json";
 
@@ -13,9 +14,9 @@ const CryptoDetails = () => {
             {details.market_cap_rank}<br></br>
             {details.name}<br></br>
             {details.symbol}<br></br>
-            {dataJson.usd}{details.market_data.market_cap.usd}<br></br>
-            {dataJson.usd}{details.market_data.fully_diluted_valuation.usd}<br></br>
-            {dataJson.usd}{details.market_data.total_volume.usd}<br></br>
+            {dataJson.usd}{UseFormatCount(details.market_data.market_cap.usd)}<br></br>
+            {dataJson.usd}{UseFormatCount(details.market_data.fully_diluted_valuation.usd)}<br></br>
+            {dataJson.usd}{UseFormatCount(details.market_data.total_volume.usd)}<br></br>
             {dataJson.usd}{details.market_data.high_24h.usd}<br></br>
             {dataJson.usd}{details.market_data.low_24h.usd}<br></br>
             {details.market_data.price_change_percentage_24h}{dataJson.percent}<br></br>
