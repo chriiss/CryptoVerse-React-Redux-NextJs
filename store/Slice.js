@@ -7,7 +7,8 @@ const initialState = {
     suggestion: null,
     fav: [],
     history: [],
-    detail: {}
+    detail: {},
+    header: {}
 }
 
 const cryptoSlice = createSlice({
@@ -31,6 +32,9 @@ const cryptoSlice = createSlice({
         },
         addDetail(state, action) {
             state.detail = action.payload;
+        },
+        addHeader(state, action) {
+            state.header = action.payload;
         }
     }
 })
@@ -38,11 +42,12 @@ const cryptoSlice = createSlice({
 
 
 
-export const { addCryptos, addSearch, addSuggestion, addFav, addHistory, addDetail } = cryptoSlice.actions;
+export const { addCryptos, addSearch, addSuggestion, addFav, addHistory, addDetail, addHeader } = cryptoSlice.actions;
 export const getAllCryptos = (state) => state.cryptos.cryptos;
 export const getSearch = (state) => state.search.search;
 export const getSuggestion = (state) => state.suggestion.suggestion;
 export const getFav = (state) => state.fav.fav;
 export const getHistory = (state) => state.history.history;
 export const getDetail = (state) => state.detail.detail;
+export const getHeader = (state) => state.header.header;
 export default cryptoSlice.reducer;

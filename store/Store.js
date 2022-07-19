@@ -8,6 +8,7 @@ export const store = configureStore({
         suggestion: cryptosReducer,
         fav: cryptosReducer,
         history: cryptosReducer,
-        detail: cryptosReducer
+        detail: cryptosReducer,
+        header: cryptosReducer
     }
 })
