@@ -8,7 +8,9 @@ const initialState = {
     fav: [],
     history: [],
     detail: {},
-    header: {}
+    header: {},
+    page: 1,
+    isFetching: false,
 }
 
 const cryptoSlice = createSlice({
@@ -17,6 +19,12 @@ const cryptoSlice = createSlice({
     reducers: {
         addCryptos(state, action){
             state.cryptos = action.payload;
+        },
+        addCryptosPage(state, action) {
+            state.page = action.payload;
+        },
+        addCryptosFetching(state, action) {
+            state.isFetching = action.payload;
         },
         addSearch(state, action) {
             state.search = action.payload;
@@ -42,8 +50,10 @@ const cryptoSlice = createSlice({
 
 
 
-export const { addCryptos, addSearch, addSuggestion, addFav, addHistory, addDetail, addHeader } = cryptoSlice.actions;
+export const { addCryptos, addCryptosPage, addCryptosFetching, addSearch, addSuggestion, addFav, addHistory, addDetail, addHeader } = cryptoSlice.actions;
 export const getAllCryptos = (state) => state.cryptos.cryptos;
+export const getCryptosPage = (state) => state.page.page;
+export const getCryptosFetching = (state) => state.isFetching.isFetching;
 export const getSearch = (state) => state.search.search;
 export const getSuggestion = (state) => state.suggestion.suggestion;
 export const getFav = (state) => state.fav.fav;

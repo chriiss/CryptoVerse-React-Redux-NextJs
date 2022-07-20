@@ -1,31 +1,24 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { cryptoData } from "../../pages/api/CryptoApi";
-import { addCryptos, addFav, addDetail, getFav  } from "../../store/Slice";
+import { useRouter } from 'next/router';
+import axios from 'axios';
+import { addFav, addDetail, getFav } from "../../store/Slice";
 import SearchBox from '../searchBoxComponent/SearchBox';
 import FilterList from '../filterComponent/FilterList';
 import CryptoList from '../cryptoComponents/CryptoList';
 import AddFavorite from '../favoritesComponents/AddFavorite';
-import { useRouter } from 'next/router';
-import axios from 'axios';
+
+
 
 const Crypto = () => {
     const dispatch = useDispatch();
     const favorite = useSelector(getFav);
     const router = useRouter();
 
-    const getCryptoData = async () => {
-        await cryptoData.then(result => dispatch(addCryptos(result.data)));
-    }
-
     const getCryptoDetails = async (id) => {
         await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`).then(result => dispatch(addDetail((result.data))));
         router.push('/detailsPage?name=' + id);
     }
-
-    useEffect(() => {
-        getCryptoData();
-    })
 
     useEffect(() => {
 		try {
@@ -42,7 +35,7 @@ const Crypto = () => {
         const newFavoriteList = [...favorite, coin];
         dispatch(addFav(newFavoriteList));
         saveToCoinFav(newFavoriteList);
-        router.push('/favoritePage')
+        router.push('/favoritePage');
     }
 
     return (

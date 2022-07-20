@@ -4,6 +4,8 @@ import cryptosReducer from './Slice';
 export const store = configureStore({
     reducer: {
         cryptos: cryptosReducer,
+        page: cryptosReducer,
+        isFetching: cryptosReducer,
         search: cryptosReducer,
         suggestion: cryptosReducer,
         fav: cryptosReducer,
