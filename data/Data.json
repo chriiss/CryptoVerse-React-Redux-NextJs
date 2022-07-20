@@ -4,6 +4,18 @@
     "percent": "%",
     "last": "Search History",
 
+    "listHeader": {
+        "coin": "Coin",
+        "price": "Price"
+    },
+
+    "list": {
+        "hvol": "24h",
+        "total_cap": "Cap",
+        "volume": "Vol",
+        "ath": "Ath"
+    },
+
     "filterCryptos": [
         {
             "label": "Price",

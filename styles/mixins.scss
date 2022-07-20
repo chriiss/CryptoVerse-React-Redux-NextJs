@@ -1,0 +1,87 @@
+@use "./variables.scss" as variables;
+
+@mixin flexStyle {
+    .dFlex {
+        display: flex;
+    }
+
+    .flexColumn {
+        flex-direction: column;
+    }
+}
+
+@mixin upperCaseStyle {
+    .upperCase {
+        text-transform: uppercase;
+    }
+}
+
+@mixin lineStyle {
+    .line {
+        line-height: 25px;
+    }
+}
+
+@mixin percentDataStyle {
+    .green {
+        color: variables.$green;
+    }
+    .red {
+        color: variables.$red;
+    }
+}
+
+
+
+@mixin searchResultStyle {
+    .result {
+        margin-top: variables.$top-space;
+        margin-left: variables.$left-space;
+    }
+}
+
+@mixin listStyle {
+    .tableHeader {
+        margin-top: variables.$top-space;
+        margin-bottom: 0.25rem;
+        .coin {
+            flex: 0.25;
+            margin-left: variables.$left-space;
+            @media (max-width: variables.$breakpoint-mobile) {
+                flex: 0.4;
+            }
+        }
+    }
+    .table {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: fixed;
+        @media (max-width: variables.$breakpoint-tablet) {
+            font-size: variables.$font-size-tablet;
+        }
+        @media (max-width: variables.$breakpoint-mobile) {
+            width: 150%;
+            font-size: variables.$font-size-mobile;
+        }
+        .firstRow {
+            margin-left: variables.$left-space;
+
+            .name {
+                margin-left: variables.$left-space;
+            }
+        }
+        .buttonContainer {
+            margin-top: 1rem;
+            padding-bottom: 1rem;
+            margin-left: 2rem;
+            button {
+                background: none;
+                border: 1px solid #ccc;
+                padding: 0.5rem;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}

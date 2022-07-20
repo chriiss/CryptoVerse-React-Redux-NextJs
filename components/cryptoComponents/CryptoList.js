@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,6 +18,7 @@ const CryptoList = (props) => {
     )
 
     const FavoriteComponent = props.favoritesComponent;
+    const MoreComponent = props.moreComponent;
     const dispatch = useDispatch();
 
     const getCryptoData = async () => {
@@ -29,12 +30,7 @@ const CryptoList = (props) => {
     }
 
     const isScrolling = () => {
-        if (
-          window.innerHeight + document.documentElement.scrollTop !==
-          document.documentElement.offsetHeight
-        ) {
-          return;
-        }
+        if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
         dispatch(addCryptosFetching(true));
     };
 
@@ -56,22 +52,53 @@ const CryptoList = (props) => {
 
     return(
         <div>
-            <div>{cryptoResult.length} {dataJson.result}</div>
+            <div className={Styles.result}>{cryptoResult.length} {dataJson.result}</div>
+            <div className={`${Styles.dFlex} ${Styles.tableHeader}`}>
+                <div className={Styles.coin}>{dataJson.listHeader.coin}</div>
+                <div>{dataJson.listHeader.price}</div>
+            </div>
             {
             cryptoResult.map((data, index) => (
-                <div key={index}>
-                    { data.image && (<Image src={data.image} width={25} height={25} alt="crypto_icon"/>)}
-                    {data.market_cap_rank}
-                    {data.name}
-                    {data.symbol}
-                    {dataJson.usd}{data.current_price}
-                    <span className={data.price_change_percentage_24h <= 0 ? Styles.red : Styles.green}>{data.price_change_percentage_24h?.toFixed(2)}{dataJson.percent}</span>
-                    {dataJson.usd}{UseFormatCount(data.market_cap)}
-                    {dataJson.usd}{UseFormatCount(data.total_volume)}
-                    {dataJson.usd}{UseFormatCount(data.ath)}
-                    <button type="button" role="button" onClick={() => props.handleFavoritesClick(data)}><FavoriteComponent /></button>
-                    <div onClick={() =>  props.handleIdClick(data)}>More</div>
-                </div>
+                <table className={Styles.table} key={index}>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div className={`${Styles.dFlex} ${Styles.firstRow}`}>
+                                    <div>{data.image && (<Image src={data.image} width={40} height={40} alt="crypto_icon"/>)}</div>
+                                    <div className={Styles.name}>{data.market_cap_rank}</div>
+                                    <div>
+                                        <div>{data.name}</div>
+                                        <div className={Styles.upperCase}>{data.symbol}</div>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>{dataJson.usd}{data.current_price}</td>
+
+                            <td>
+                                <div className={`${Styles.dFlex} ${Styles.flexColumn} ${Styles.line}`}>
+                                    <span className={Styles.dFlex}>{dataJson.list.hvol}:&nbsp;
+                                        <div className={data.price_change_percentage_24h <= 0 ? Styles.red : Styles.green}>{data.price_change_percentage_24h?.toFixed(2)}{dataJson.percent}
+                                        </div>
+                                    </span>
+                                    <div>{dataJson.list.total_cap}: {dataJson.usd}{UseFormatCount(data.market_cap)}</div>
+                                    <div>{dataJson.list.volume}: {dataJson.usd}{UseFormatCount(data.total_volume)}</div>
+                                    <div>{dataJson.list.ath}: {dataJson.usd}{UseFormatCount(data.ath)}</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div className={`${Styles.dFlex} ${Styles.flexColumn}`}>
+                                    <div className={Styles.buttonContainer}>
+                                        <button type="button" role="button" onClick={() => props.handleFavoritesClick(data)}><FavoriteComponent /></button>
+                                    </div>
+                                    <div className={Styles.buttonContainer}>
+                                        <button type="button" onClick={() =>  props.handleIdClick(data)}><MoreComponent /></button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             ))}
         </div>
     )

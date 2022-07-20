@@ -7,6 +7,7 @@ import SearchBox from '../searchBoxComponent/SearchBox';
 import FilterList from '../filterComponent/FilterList';
 import CryptoList from '../cryptoComponents/CryptoList';
 import AddFavorite from '../favoritesComponents/AddFavorite';
+import More from './moreComponents/More';
 
 
 
@@ -42,7 +43,7 @@ const Crypto = () => {
         <div>
             <SearchBox handleIdClick={(id)=> getCryptoDetails(id.toLowerCase().replaceAll(' ', '-'))} />
             <FilterList />
-            <CryptoList favoritesComponent={AddFavorite} handleFavoritesClick={addFavoriteCoin} handleIdClick={(id)=> getCryptoDetails(id.id)} />
+            <CryptoList favoritesComponent={AddFavorite} moreComponent={More} handleFavoritesClick={addFavoriteCoin} handleIdClick={(id)=> getCryptoDetails(id.id)} />
         </div>
     )
 

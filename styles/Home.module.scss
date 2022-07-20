@@ -1,10 +1,9 @@
-@use "styles" as variables;
+@use "styles" as mixins;
 
 
-.green {
-    color: variables.$green;
-}
-
-.red {
-    color: variables.$red;
-}
+@include mixins.flexStyle();
+@include mixins.upperCaseStyle();
+@include mixins.lineStyle();
+@include mixins.percentDataStyle();
+@include mixins.searchResultStyle();
+@include mixins.listStyle();
