@@ -3,6 +3,7 @@
     "usd": "$",
     "percent": "%",
     "last": "Search History",
+    "loading": "Loading",
 
     "listHeader": {
         "coin": "Coin",
