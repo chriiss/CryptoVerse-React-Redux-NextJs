@@ -3,6 +3,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import UseFormatCount from '../../hooks/UseFormatCount';
+import UseShortNumber from '../../hooks/UseShortNumber';
 import { addCryptos, getAllCryptos, addCryptosPage, getCryptosPage, getSearch, addCryptosFetching, getCryptosFetching } from '../../store/Slice';
 import Loading from '../loadingComponent/Loading';
 import dataJson from "../../data/Data.json";
@@ -79,7 +80,7 @@ const CryptoList = (props) => {
                             <td>
                                 <div className={`${Styles.dFlex} ${Styles.flexColumn} ${Styles.line}`}>
                                     <span className={Styles.dFlex}>{dataJson.list.hvol}:&nbsp;
-                                        <div className={data.price_change_percentage_24h <= 0 ? Styles.red : Styles.green}>{data.price_change_percentage_24h?.toFixed(2)}{dataJson.percent}
+                                        <div className={data.price_change_percentage_24h <= 0 ? Styles.red : Styles.green}>{UseShortNumber(data.price_change_percentage_24h)}{dataJson.percent}
                                         </div>
                                     </span>
                                     <div>{dataJson.list.total_cap}: {dataJson.usd}{UseFormatCount(data.market_cap)}</div>

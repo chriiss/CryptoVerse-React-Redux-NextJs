@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { cryptoHeaderData } from '../../pages/api/CryptoApi';
 import { addHeader, getHeader } from '../../store/Slice';
 import UseFormatCount from '../../hooks/UseFormatCount';
+import UseShortNumber from '../../hooks/UseShortNumber';
 import dataJson from "../../data/Data.json";
 import Styles from '../../styles/Home.module.scss';
 
@@ -24,10 +25,10 @@ const Header = () => {
             {header.markets}
             {UseFormatCount(header.total_market_cap?.usd)}
             {UseFormatCount(header.total_volume?.usd)}
-            <span className={header.market_cap_change_percentage_24h_usd <= 0 ? Styles.red : Styles.green}>{Math.round(header.market_cap_change_percentage_24h_usd * 100) / 100 }{dataJson.percent}</span>
-            {Math.round(header.market_cap_percentage?.btc * 100) / 100}{dataJson.percent}
-            {Math.round(header.market_cap_percentage?.eth * 100) / 100}{dataJson.percent}
-            {Math.round(header.market_cap_percentage?.usdt * 100) / 100}{dataJson.percent}
+            <span className={header.market_cap_change_percentage_24h_usd <= 0 ? Styles.red : Styles.green}>{UseShortNumber(header.market_cap_change_percentage_24h_usd)}{dataJson.percent}</span>
+            {UseShortNumber(header.market_cap_percentage?.btc)}{dataJson.percent}
+            {UseShortNumber(header.market_cap_percentage?.eth)}{dataJson.percent}
+            {UseShortNumber(header.market_cap_percentage?.usdt)}{dataJson.percent}
         </div>
     )
 }
