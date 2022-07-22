@@ -107,6 +107,18 @@
     }
 }
 
+@mixin topButtonStyle {
+    .topButton {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        margin-right: variables.$left-space;
+        margin-bottom: variables.$top-space;
+        background: none;
+        border-image: variables.$border-color-gradient;
+    }
+}
+
 @mixin listStyle {
     .tableHeader {
         margin-top: variables.$top-space;
@@ -144,9 +156,9 @@
             margin-left: 2rem;
             button {
                 background: none;
-                border: 1px solid #ccc;
+                border: 1px solid variables.$border-color;
                 padding: 0.5rem;
-                border-radius: 5px;
+                border-radius: variables.$radius;
                 cursor: pointer;
             }
         }

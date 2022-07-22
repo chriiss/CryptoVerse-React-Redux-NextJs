@@ -11,6 +11,7 @@ export const store = configureStore({
         fav: cryptosReducer,
         history: cryptosReducer,
         detail: cryptosReducer,
-        header: cryptosReducer
+        header: cryptosReducer,
+        isButtonTopVisible: cryptosReducer,
     }
 })

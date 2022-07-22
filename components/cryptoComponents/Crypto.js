@@ -8,6 +8,7 @@ import FilterList from '../filterComponent/FilterList';
 import CryptoList from '../cryptoComponents/CryptoList';
 import AddFavorite from '../favoritesComponents/AddFavorite';
 import More from './moreComponents/More';
+import TopButton from '../topButtonComponent/TopButton';
 
 
 
@@ -43,6 +44,7 @@ const Crypto = () => {
         <div>
             <SearchBox handleIdClick={(id)=> getCryptoDetails(id.toLowerCase().replaceAll(' ', '-'))} />
             <FilterList />
+            <TopButton />
             <CryptoList favoritesComponent={AddFavorite} moreComponent={More} handleFavoritesClick={addFavoriteCoin} handleIdClick={(id)=> getCryptoDetails(id.id)} />
         </div>
     )
