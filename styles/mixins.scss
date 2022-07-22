@@ -68,6 +68,37 @@
 }
 
 
+@mixin filterStyle {
+    .selectContainer {
+        gap: 40px;
+        margin-top: variables.$top-space;
+        padding-left: variables.$left-space;
+        padding-right: variables.$left-space;
+
+        @media (max-width: variables.$breakpoint-tablet) {
+            gap: 20px;
+        }
+    }
+    .select {
+        margin-top: 1rem;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid variables.$border-color;
+        padding: 2px;
+        width: 20vw;
+        outline: none;
+        @media (max-width: variables.$breakpoint-tablet) {
+            font-size: variables.$font-size-tablet;
+        }
+        @media (max-width: variables.$breakpoint-mobile) {
+            font-size: variables.$font-size-mobile;
+            width: 30vw;
+        }
+    }
+}
+
+
 
 @mixin searchResultStyle {
     .result {

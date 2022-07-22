@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addCryptos, getAllCryptos } from "../../store/Slice";
 import dataJson from "../../data/Data.json";
+import Styles from "../../styles/Home.module.scss";
 
 
 const FilterList = () => {
@@ -28,15 +29,19 @@ const FilterList = () => {
 
     return (
         <div>
+        <div className={`${Styles.dFlex} ${Styles.selectContainer}`}>
             {selectCrypto.map((data, index) => {
                 return(
-                    <select key={index} onChange={(e) => getSort(e.target.value)}>
+                    <label htmlFor={data.label} key={index}>{data.label}<br/>
+                    <select name={data.label} className={Styles.select} onChange={(e) => getSort(e.target.value)}>
                         <option value="">{data.label}</option>
                         <option value={data.value}>{data.name}</option>
                         <option value={data.value_bis}>{data.name_bis}</option>
                     </select>
+                    </label>
                 )
             })}
+        </div>
         </div>
     )
 }
