@@ -47,14 +47,12 @@
             "value_bis": "8"
         }
     ],
-    "navbarComponent": [
-        {
-            "name": "Home",
-            "link": "/"
-        },
-        {
-            "name": "Favorite",
-            "link": "/favoritePage"
-        }
-    ]
+    "navbarHome": {
+        "name": "Home",
+        "link": "/"
+    },
+    "navbarFavorite": {
+        "name": "Favorite",
+        "link": "/favoritePage"
+    }
 }

@@ -16,6 +16,14 @@
     }
 }
 
+@mixin buttonStyle {
+    background: none;
+    border: 1px solid variables.$border-color;
+    padding: 0.5rem;
+    border-radius: variables.$radius;
+    cursor: pointer;
+}
+
 @mixin lineStyle {
     .line {
         line-height: 25px;
@@ -43,8 +51,8 @@
     .spinner {
         height: 5rem;
         width: 5rem;
-        border: 10px solid rgb(250, 250, 250);
-        border-left: 10px solid rgb(8, 0, 33);
+        border: 10px solid variables.$secondary-color;
+        border-left: 10px solid variables.$active-color;
         border-radius: 50%;
         display: flex;
         justify-content: center;
@@ -55,7 +63,6 @@
     .spinnerText {
         position: absolute;
         font-size: 7px;
-        color: rgb(24, 0, 0);
         font-weight: 600;
         letter-spacing: 1.5px;
         text-transform: uppercase;
@@ -64,6 +71,94 @@
 
     @keyframes spin {
         to { transform: rotate(360deg); }
+    }
+}
+
+@mixin navStyle {
+    .navbar {
+        position:fixed;
+        bottom: 0;
+        left: 0;
+        background-color: variables.$primary-color;
+        padding: 1.7rem;
+        z-index: 1;
+        width: 100%;
+        color: variables.$border-color;
+        justify-content: center;
+        gap: 12px;
+        box-shadow: 0px -14px 29px -2px rgba(0,0,0,0.52);
+
+        @media (max-width: variables.$breakpoint-tablet) {
+            font-size: variables.$font-size-tablet;
+        }
+        @media (max-width: variables.$breakpoint-mobile) {
+            font-size: variables.$font-size-mobile;
+        }
+
+        svg {
+            margin-left: 0.5rem;
+        }
+
+        .active {
+            color: variables.$active-color;
+            border-bottom: 1px solid variables.$active-color;
+            svg {
+                fill: variables.$active-color;
+            }
+        }
+    }
+}
+
+@mixin searchStyle {
+    .search {
+        width: 90vw;
+        border: 1px solid variables.$border-color;
+        border-radius: 100px;
+        padding: variables.$left-space;
+        outline: none;
+        display: block;
+        margin: auto;
+
+        @media (max-width: variables.$breakpoint-tablet) {
+            font-size: variables.$font-size-tablet;
+        }
+        @media (max-width: variables.$breakpoint-mobile) {
+            font-size: variables.$font-size-mobile;
+        }
+    }
+
+    .search::placeholder {
+        @media (max-width: variables.$breakpoint-tablet) {
+            font-size: variables.$font-size-tablet;
+        }
+        @media (max-width: variables.$breakpoint-mobile) {
+            font-size: variables.$font-size-mobile;
+        }
+    }
+
+    .suggest, .history {
+        width: 90vw;
+        display: block;
+        margin: auto;
+        margin-top: 0.25rem;
+        @media (max-width: variables.$breakpoint-tablet) {
+            font-size: variables.$font-size-tablet;
+        }
+        @media (max-width: variables.$breakpoint-mobile) {
+            font-size: variables.$font-size-mobile;
+        }
+
+        span {
+            vertical-align: top;
+            &:nth-child(2), &:nth-child(3), &:nth-child(4) {
+                margin-left: variables.$left-space;
+            }
+        }
+    }
+
+    .closeHistory {
+        float: right;
+        @include buttonStyle();
     }
 }
 
@@ -113,11 +208,12 @@
         right: 0;
         bottom: 0;
         margin-right: variables.$left-space;
-        margin-bottom: variables.$top-space;
+        margin-bottom: variables.$top-space * 4.5;
         background: none;
         border-image: variables.$border-color-gradient;
     }
 }
+
 
 @mixin listStyle {
     .tableHeader {
@@ -132,7 +228,7 @@
         }
     }
     .table {
-        border: 1px solid #ccc;
+        border: 1px solid variables.$border-color;
         border-collapse: collapse;
         width: 100%;
         table-layout: fixed;
@@ -155,11 +251,7 @@
             padding-bottom: 1rem;
             margin-left: 2rem;
             button {
-                background: none;
-                border: 1px solid variables.$border-color;
-                padding: 0.5rem;
-                border-radius: variables.$radius;
-                cursor: pointer;
+                @include buttonStyle();
             }
         }
     }

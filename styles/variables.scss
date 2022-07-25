@@ -1,7 +1,10 @@
 $green: rgb(3, 166, 3);
 $red: rgb(134, 5, 5);
+$primary-color: #07001E;
+$secondary-color: #F6F6F6;
 $border-color: #ccc;
-$border-color-gradient: linear-gradient(to right bottom, #011346, #071c6f, #232199, #4721c3, #7012eb) 1;
+$border-color-gradient: linear-gradient(to right bottom, #00e17b, #2ee38b, #46e499, #5be5a7, #6ee6b3, #6de7ca, #78e8db, #8ae7e8, #a5e4f5, #c3e1f5, #d8dfec, #ffffff) 1;
+$active-color: #00E17B;
 
 $breakpoint-tablet: 768px;
 $breakpoint-mobile: 480px;
