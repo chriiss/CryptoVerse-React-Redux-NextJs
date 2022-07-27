@@ -59,8 +59,7 @@ const CryptoList = (props) => {
                 <div className={Styles.coin}>{dataJson.listHeader.coin}</div>
                 <div>{dataJson.listHeader.price}</div>
             </div>
-            {
-            cryptoResult.map((data, index) => (
+            {cryptoResult.map((data, index) => (
                 <table className={Styles.table} key={index}>
                     <tbody>
                         <tr>

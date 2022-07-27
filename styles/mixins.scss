@@ -74,6 +74,28 @@
     }
 }
 
+@mixin headerStyle {
+    .header {
+        padding-top: variables.$top-space;
+        padding-bottom: variables.$top-space;
+        padding-left: variables.$left-space;
+        padding-right: variables.$left-space;
+        gap: 30px;
+
+        @media (max-width: variables.$breakpoint-tablet) {
+            font-size: variables.$font-size-tablet;
+            gap: 10px;
+        }
+        @media (max-width: variables.$breakpoint-mobile) {
+            font-size: variables.$font-size-mobile;
+        }
+
+        &_vol {
+            gap: 5px;
+        }
+    }
+}
+
 @mixin navStyle {
     .navbar {
         position:fixed;
@@ -118,12 +140,15 @@
         outline: none;
         display: block;
         margin: auto;
+        background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='grey' width='26' height='26' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+        background-position: 98%;
 
         @media (max-width: variables.$breakpoint-tablet) {
             font-size: variables.$font-size-tablet;
         }
         @media (max-width: variables.$breakpoint-mobile) {
             font-size: variables.$font-size-mobile;
+            width: variables.$width-size-mobile;
         }
     }
 
@@ -146,6 +171,8 @@
         }
         @media (max-width: variables.$breakpoint-mobile) {
             font-size: variables.$font-size-mobile;
+            width: variables.$width-size-mobile;
+            padding-left: variables.$left-space;
         }
 
         span {
@@ -211,6 +238,7 @@
         margin-bottom: variables.$top-space * 4.5;
         background: none;
         border-image: variables.$border-color-gradient;
+        cursor:pointer;
     }
 }
 
@@ -232,12 +260,13 @@
         border-collapse: collapse;
         width: 100%;
         table-layout: fixed;
+
         @media (max-width: variables.$breakpoint-tablet) {
             font-size: variables.$font-size-tablet;
         }
         @media (max-width: variables.$breakpoint-mobile) {
-            width: 150%;
             font-size: variables.$font-size-mobile;
+            width: variables.$width-size-mobile;
         }
         .firstRow {
             margin-left: variables.$left-space;
@@ -254,5 +283,11 @@
                 @include buttonStyle();
             }
         }
+    }
+}
+
+@mixin favoriteStyle {
+    .favorite {
+        margin-bottom: 8.4rem;
     }
 }

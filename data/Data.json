@@ -5,6 +5,15 @@
     "last": "Search History",
     "loading": "Loading",
 
+    "headerComponent": {
+        "coins": "Coins",
+        "total_market_cap": "Cap",
+        "total_vol_24": "Vol 24h",
+        "btc": "BTC",
+        "eth": "ETH",
+        "usdt": "USDT"
+    },
+
     "listHeader": {
         "coin": "Coin",
         "price": "Price"
@@ -47,12 +56,14 @@
             "value_bis": "8"
         }
     ],
-    "navbarHome": {
-        "name": "Home",
-        "link": "/"
-    },
-    "navbarFavorite": {
-        "name": "Favorite",
-        "link": "/favoritePage"
+    "navbarComponent": {
+        "navbarHome": {
+            "name": "Home",
+            "link": "/"
+        },
+        "navbarFavorite": {
+            "name": "Favorite",
+            "link": "/favoritePage"
+        }
     }
 }

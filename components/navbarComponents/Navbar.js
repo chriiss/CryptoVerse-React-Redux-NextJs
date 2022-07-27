@@ -8,8 +8,8 @@ import { useRouter } from "next/router";
 
 const Navbar = () => {
     const router = useRouter();
-    const navHome  =  jsonData.navbarHome;
-    const navFavorite  =  jsonData.navbarFavorite;
+    const navHome  =  jsonData.navbarComponent.navbarHome;
+    const navFavorite  =  jsonData.navbarComponent.navbarFavorite;
 
 
     return(
