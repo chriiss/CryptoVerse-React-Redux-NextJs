@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import { addFav, addDetail, getFav } from "../../store/Slice";
-import SearchBox from '../searchBoxComponent/SearchBox';
-import FilterList from '../filterComponent/FilterList';
-import CryptoList from '../cryptoComponents/CryptoList';
-import AddFavorite from '../favoritesComponents/AddFavorite';
-import More from './moreComponents/More';
-import TopButton from '../topButtonComponent/TopButton';
+import SearchBox from './searchBoxComponent/SearchBox';
+import FilterList from './filterComponent/FilterList';
+import CryptoList from './cryptoList/CryptoList';
+import AddFavorite from './addFavorite/AddFavorite';
+import More from '../moreComponents/More';
+import TopButton from './topButtonComponent/TopButton';
 
 
 

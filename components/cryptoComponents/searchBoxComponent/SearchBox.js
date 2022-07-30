@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Image from 'next/image';
 import { useSelector, useDispatch } from "react-redux";
-import { addSearch, addSuggestion, addHistory, getSearch, getAllCryptos, getSuggestion, getHistory, getVisibleHistory, addVisibleHistory } from "../../store/Slice";
-import More from "../cryptoComponents/moreComponents/More";
+import { addSearch, addSuggestion, addHistory, getSearch, getAllCryptos, getSuggestion, getHistory, getVisibleHistory, addVisibleHistory } from "../../../store/Slice";
+import More from "../../moreComponents/More";
 import CloseHistory from "./closeHistoryComponent/CloseHistory";
-import dataJson from "../../data/Data.json";
-import Styles from "../../styles/Home.module.scss";
+import dataJson from "../../../data/Data.json";
+import Styles from "../../../styles/Home.module.scss";
 
 
 const SearchBox = (props) => {

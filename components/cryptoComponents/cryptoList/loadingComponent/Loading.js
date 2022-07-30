@@ -1,6 +1,6 @@
 import React from 'react';
-import dataJson from '../../data/Data.json';
-import Styles from '../../styles/Home.module.scss';
+import dataJson from '../../../../data/Data.json';
+import Styles from '../../../../styles/Home.module.scss';
 
 const Loading = () => {
     return(

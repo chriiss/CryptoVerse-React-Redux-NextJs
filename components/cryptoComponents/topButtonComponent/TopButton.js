@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addButtonTop, getButtonTop } from "../../store/Slice";
-import Styles from "../../styles/Home.module.scss";
+import { addButtonTop, getButtonTop } from "../../../store/Slice";
+import Styles from "../../../styles/Home.module.scss";
 
 
 const TopButton = () => {

@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
-import UseFormatCount from '../../hooks/UseFormatCount';
-import UseShortNumber from '../../hooks/UseShortNumber';
-import { addCryptos, getAllCryptos, addCryptosPage, getCryptosPage, getSearch, addCryptosFetching, getCryptosFetching } from '../../store/Slice';
-import Loading from '../loadingComponent/Loading';
-import dataJson from "../../data/Data.json";
-import Styles from '../../styles/Home.module.scss';
+import UseFormatCount from '../../../hooks/UseFormatCount';
+import UseShortNumber from '../../../hooks/UseShortNumber';
+import { addCryptos, getAllCryptos, addCryptosPage, getCryptosPage, getSearch, addCryptosFetching, getCryptosFetching } from '../../../store/Slice';
+import Loading from './loadingComponent/Loading';
+import dataJson from "../../../data/Data.json";
+import Styles from '../../../styles/Home.module.scss';
 
 const CryptoList = (props) => {
     const cryptoApi = useSelector(getAllCryptos);
