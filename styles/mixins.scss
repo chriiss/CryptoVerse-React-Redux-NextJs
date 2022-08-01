@@ -74,13 +74,18 @@
     }
 }
 
+@mixin paddingHeaderStyle {
+    padding-top: variables.$top-space;
+    padding-bottom: variables.$top-space;
+    padding-left: variables.$left-space;
+    padding-right: variables.$left-space;
+}
+
 @mixin headerStyle {
     .header {
-        padding-top: variables.$top-space;
-        padding-bottom: variables.$top-space;
-        padding-left: variables.$left-space;
-        padding-right: variables.$left-space;
+        @include paddingHeaderStyle();
         gap: 30px;
+        overflow-x: scroll;
 
         @media (max-width: variables.$breakpoint-tablet) {
             font-size: variables.$font-size-tablet;
@@ -133,7 +138,7 @@
 
 @mixin searchStyle {
     .search {
-        width: 90vw;
+        width: 100%;
         border: 1px solid variables.$border-color;
         border-radius: 100px;
         padding-top: variables.$left-space;
@@ -151,7 +156,6 @@
         }
         @media (max-width: variables.$breakpoint-mobile) {
             font-size: variables.$font-size-mobile;
-            width: variables.$width-size-mobile;
         }
     }
 
@@ -165,7 +169,7 @@
     }
 
     .suggest, .history {
-        width: 90vw;
+        width: 100%;
         display: block;
         margin: auto;
         margin-top: 0.25rem;
@@ -174,7 +178,6 @@
         }
         @media (max-width: variables.$breakpoint-mobile) {
             font-size: variables.$font-size-mobile;
-            width: variables.$width-size-mobile;
             padding-left: variables.$left-space;
         }
 
@@ -211,14 +214,13 @@
         border-right: none;
         border-bottom: 1px solid variables.$border-color;
         padding: 2px;
-        width: 20vw;
+        width: 100%;
         outline: none;
         @media (max-width: variables.$breakpoint-tablet) {
             font-size: variables.$font-size-tablet;
         }
         @media (max-width: variables.$breakpoint-mobile) {
             font-size: variables.$font-size-mobile;
-            width: 30vw;
         }
     }
 }
@@ -269,7 +271,6 @@
         }
         @media (max-width: variables.$breakpoint-mobile) {
             font-size: variables.$font-size-mobile;
-            width: variables.$width-size-mobile;
         }
         .firstRow {
             margin-left: variables.$left-space;
@@ -292,5 +293,85 @@
 @mixin favoriteStyle {
     .favorite {
         margin-bottom: 8.4rem;
+    }
+}
+
+@mixin borderPriceChangePercentageStyle {
+    border-left: 1px solid variables.$border-color;
+    border-right: 1px solid variables.$border-color;
+    border-top: 1px solid variables.$border-color;
+}
+
+@mixin cryptoDetailsHeaderStyle {
+    .header {
+        @include paddingHeaderStyle();
+    }
+    .rankBloc {
+        background-color: variables.$border-color;
+        padding: variables.$left-space;
+        border-radius: 30px;
+        width: 90px;
+        margin-bottom: variables.$top-space;
+        @media (max-width: variables.$breakpoint-tablet) {
+            width: 100px;
+        }
+        @media (max-width: variables.$breakpoint-mobile) {
+            width: 110px;
+        }
+    }
+    .coinBloc {
+        gap: 15px;
+        margin-bottom: variables.$top-space;
+        font-weight: bold;
+        div:nth-child(2), div:nth-child(3) {
+            margin-top: 15px;
+        }
+    }
+    .marketDataBloc {
+        gap: 20px;
+        margin-bottom: variables.$top-space;
+    }
+
+
+    .coinInfo {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 30px;
+        grid-row-gap: 30px;
+        margin-bottom: variables.$top-space;
+
+        div {
+            border-bottom: 1px solid variables.$border-color;
+            padding-bottom: variables.$top-space / 4;
+
+            @media (max-width: variables.$breakpoint-tablet) {
+               border: none;
+            }
+        }
+
+        @media (max-width: variables.$breakpoint-tablet) {
+            grid-template-columns: 1fr;
+            grid-column-gap: 0px;
+            grid-row-gap: 19px;
+        }
+    }
+
+    .pricePercentageBloc {
+        margin-bottom: variables.$top-space;
+        overflow-x: scroll;
+
+        div {
+            label {
+                justify-content: center;
+                @include borderPriceChangePercentageStyle;
+                padding: .75rem 2.5rem .75rem 2.5rem;
+            }
+            div {
+                @include borderPriceChangePercentageStyle;
+                border-bottom: 1px solid variables.$border-color;
+                 padding: .75rem 2.5rem .75rem 2.5rem;
+            }
+        }
     }
 }

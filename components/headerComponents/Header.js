@@ -21,7 +21,7 @@ const Header = () => {
     })
 
     return(
-        <div className= {`${Styles.header} ${Styles.dFlex}`}>
+        <header className= {`${Styles.header} ${Styles.dFlex}`}>
             <div>
                 <label htmlFor={headerComponent.coins}>{headerComponent.coins}</label>
                 <div name={headerComponent.coins}>{UseFormatCount(header.active_cryptocurrencies)}</div>
@@ -54,7 +54,7 @@ const Header = () => {
                 <label htmlFor={headerComponent.usdt}>{headerComponent.usdt}</label>
                 <div name={headerComponent.usdt}>{UseShortNumber(header.market_cap_percentage?.usdt)}{dataJson.percent}</div>
             </div>
-        </div>
+        </header>
     )
 }
 

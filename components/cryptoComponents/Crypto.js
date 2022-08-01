@@ -41,12 +41,12 @@ const Crypto = () => {
     }
 
     return (
-        <div>
+        <section>
             <SearchBox handleIdClick={(id)=> getCryptoDetails(id.toLowerCase().replaceAll(' ', '-'))} />
             <FilterList />
             <TopButton />
             <CryptoList favoritesComponent={AddFavorite} moreComponent={More} handleFavoritesClick={addFavoriteCoin} handleIdClick={(id)=> getCryptoDetails(id.id)} />
-        </div>
+        </section>
     )
 
 }

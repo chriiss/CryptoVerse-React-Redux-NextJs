@@ -14,18 +14,6 @@
         "usdt": "USDT"
     },
 
-    "listHeader": {
-        "coin": "Coin",
-        "price": "Price"
-    },
-
-    "list": {
-        "hvol": "24h",
-        "total_cap": "Cap",
-        "volume": "Vol",
-        "ath": "Ath"
-    },
-
     "filterCryptos": [
         {
             "label": "Price",
@@ -49,7 +37,7 @@
             "value_bis": "6"
         },
         {
-            "label": "24h Percent",
+            "label": "24h %",
             "name": "low to high",
             "value": "7",
             "name_bis": "high to low",
@@ -64,6 +52,47 @@
         "navbarFavorite": {
             "name": "Favorite",
             "link": "/favoritePage"
+        }
+    },
+
+    "cryptoListComponent": {
+        "listHeader": {
+            "coin": "Coin",
+            "price": "Price"
+        },
+
+        "list": {
+            "hvol": "24h",
+            "total_cap": "Cap",
+            "volume": "Vol",
+            "ath": "Ath"
+        }
+    },
+
+    "cryptoDetailsComponent": {
+        "rank_cap": {
+            "hashtag": "#",
+            "rank": "Rank"
+        },
+        "price_range": {
+            "twentyFour_range": "24H Range"
+        },
+        "coin_info": {
+            "total_market_cap": "Total Cap",
+            "diluted_valuation": "Fully diluted valuation",
+            "trading_vol_24h": "Trading volume over 24 hours",
+            "circulating_supply": "Circulating Supply",
+            "total_supply": "Total Supply",
+            "max_supply": "Max Supply"
+        },
+        "coin_percentage": {
+            "twentyFour": "24h",
+            "seven": "7d",
+            "fourteen": "14d",
+            "thirty": "30d",
+            "sixty": "60d",
+            "twoHundred": "200d",
+            "one": "1y"
         }
     }
 }

@@ -1,0 +1,6 @@
+@use "styles" as mixins;
+
+@include mixins.flexStyle();
+@include mixins.upperCaseStyle();
+@include mixins.percentDataStyle();
+@include mixins.cryptoDetailsHeaderStyle();

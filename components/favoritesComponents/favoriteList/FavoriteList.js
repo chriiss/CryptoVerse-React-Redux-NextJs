@@ -34,13 +34,13 @@ const FavoriteList = (props) => {
 
                             <td>
                                 <div className={`${Styles.dFlex} ${Styles.flexColumn} ${Styles.line}`}>
-                                    <span className={Styles.dFlex}>{dataJson.list.hvol}:&nbsp;
+                                    <span className={Styles.dFlex}>{dataJson.cryptoListComponent.list.hvol}:&nbsp;
                                         <div className={data.price_change_percentage_24h <= 0 ? Styles.red : Styles.green}>{UseShortNumber(data.price_change_percentage_24h)}{dataJson.percent}
                                         </div>
                                     </span>
-                                    <div>{dataJson.list.total_cap}: {dataJson.usd}{UseFormatCount(data.market_cap)}</div>
-                                    <div>{dataJson.list.volume}: {dataJson.usd}{UseFormatCount(data.total_volume)}</div>
-                                    <div>{dataJson.list.ath}: {dataJson.usd}{UseFormatCount(data.ath)}</div>
+                                    <div>{dataJson.cryptoListComponent.list.total_cap}: {dataJson.usd}{UseFormatCount(data.market_cap)}</div>
+                                    <div>{dataJson.cryptoListComponent.list.volume}: {dataJson.usd}{UseFormatCount(data.total_volume)}</div>
+                                    <div>{dataJson.cryptoListComponent.list.ath}: {dataJson.usd}{UseFormatCount(data.ath)}</div>
                                 </div>
                             </td>
 

@@ -37,9 +37,9 @@ const CryptoFavorite = () => {
         saveToCoinFav(newFavoriteList);
     }
     return (
-        <div>
+        <section>
             <FavoriteList favoritesComponent={RemoveFavorite} handleFavoritesClick={removeFavoriteCoin} handleIdClick={(id)=> getCryptoDetails(id.id)} />
-        </div>
+        </section>
     )
 }
 
