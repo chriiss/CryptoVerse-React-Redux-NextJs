@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFav, addDetail, getFav } from "../../store/Slice";
-import FavoriteList from './FavoriteList/FavoriteList';
+import FavoriteList from './favoriteList/FavoriteList';
 import RemoveFavorite from "./removeFavorite/RemoveFavorite";
 
 
