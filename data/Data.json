@@ -4,6 +4,7 @@
     "percent": "%",
     "last": "Search History",
     "loading": "Loading",
+    "follow": "Followers",
 
     "headerComponent": {
         "coins": "Coins",
@@ -93,6 +94,14 @@
             "sixty": "60d",
             "twoHundred": "200d",
             "one": "1y"
+        },
+        "coin_community": {
+            "twitter": "Twitter",
+            "reddit": "Reddit"
+        },
+        "coin_max_min": {
+            "ath": "Ath",
+            "atl": "Atl"
         }
     }
 }

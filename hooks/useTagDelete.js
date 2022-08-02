@@ -1,5 +1,5 @@
 const useTagDelete = (value) => {
-    return value.replace(/<\/?[^>]+>/gi, '');
+    return value?.replace(/<\/?[^>]+>/gi, '');
 }
 
 export default useTagDelete;
