@@ -18,11 +18,11 @@ const CryptoFavorite = () => {
             const coinFavorites = JSON.parse(localStorage.getItem('coin-favorites') || []);
 		    dispatch(addFav((coinFavorites)));
         }catch(e){}
-	},[]);
+	}, [dispatch]);
 
     const saveToCoinFav = (items) => {
-		localStorage.setItem('coin-favorites', JSON.stringify(items));
-	};
+        localStorage.setItem('coin-favorites', JSON.stringify(items));
+    }
 
     const getCryptoDetails = async (id) => {
         await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`).then(result => dispatch(addDetail((result.data))));

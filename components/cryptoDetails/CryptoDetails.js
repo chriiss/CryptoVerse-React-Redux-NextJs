@@ -40,8 +40,8 @@ const CryptoDetails = () => {
             <section className={`${StylesCryptoDetails.dFlex} ${StylesCryptoDetails.pricePercentageBloc}`}>
                 <PricePercentage />
             </section>
-            <section className={StylesCryptoDetails.tabs}>
-                <ul className={StylesCryptoDetails.nav}>
+            <section>
+                <ul>
                     <li>{useTagDelete(details.description?.en)}</li>
                     <li>{details.tickers?.map((data, i) => {
                         return (

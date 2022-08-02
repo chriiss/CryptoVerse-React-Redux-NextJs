@@ -21,7 +21,7 @@ const SearchBox = (props) => {
             const coinHistory = JSON.parse(localStorage.getItem('search-history'));
             dispatch(addHistory((coinHistory.slice(-5))));
         }catch(e){}
-	}, []);
+	}, [dispatch]);
 
 	const saveToSearch = (items) => {
 		localStorage.setItem('search-history', JSON.stringify(items));

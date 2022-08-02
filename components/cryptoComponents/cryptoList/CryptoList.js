@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,31 +23,34 @@ const CryptoList = (props) => {
     const MoreComponent = props.moreComponent;
     const dispatch = useDispatch();
 
-    const getCryptoData = async () => {
+    const getCryptoData = useCallback(async () => {
         await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=${page}&sparkline=false`).then((res) => {
             dispatch(addCryptos([...cryptoApi, ...res.data]));
             dispatch(addCryptosPage(page + 1));
             dispatch(addCryptosFetching(false));
         });
-    }
+    }, [dispatch, cryptoApi, page]);
 
-    const isScrolling = () => {
+    const isScrolling = useCallback(() =>   {
         if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
         dispatch(addCryptosFetching(true));
-    };
+    }, [dispatch]);
+
+    useEffect(() => {
+        window.addEventListener("scroll", isScrolling);
+        return () => window.removeEventListener("scroll", isScrolling);
+    }, [isScrolling]);
 
 
     useEffect(() => {
         getCryptoData();
-        window.addEventListener("scroll", isScrolling);
-        return () => window.removeEventListener("scroll", isScrolling);
     }, []);
 
     useEffect(() => {
         if (isFetching) {
           getCryptoData();
         }
-    }, [isFetching]);
+    }, [isFetching, getCryptoData]);
 
     if(cryptoApi.length === 0) return(<div><Loading /></div>)
 

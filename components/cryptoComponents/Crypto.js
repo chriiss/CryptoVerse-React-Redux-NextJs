@@ -27,7 +27,7 @@ const Crypto = () => {
             const coinFavorites = JSON.parse(localStorage.getItem('coin-favorites') || []);
 		    dispatch(addFav((coinFavorites)));
         }catch(e){}
-	},[]);
+	}, [dispatch]);
 
     const saveToCoinFav = (items) => {
 		localStorage.setItem('coin-favorites', JSON.stringify(items));
