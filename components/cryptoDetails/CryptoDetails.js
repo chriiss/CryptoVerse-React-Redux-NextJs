@@ -1,22 +1,19 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import useTagDelete from '../../hooks/useTagDelete';
-import { getDetail } from '../../store/Slice';
 import Back from './backComponent/Back';
 import Rank from './rankComponent/Rank';
+import Categories from './categoriesComponent/Categories';
 import Coin from './coinComponent/Coin';
 import CoinRange from './coinRangeComponent/CoinRange';
 import CoinInfo from './coinInfoComponent/CoinInfo';
 import CoinOtherInfo from './coinOtherInfoComponent/CoinOtherInfo';
 import PricePercentage from './pricePercentageComponent/PricePercentage';
+import Description from './descriptionComponent/Description';
+import Market from './marketComponent/Market';
 import StylesCryptoDetails from "../../styles/CryptoDetails.module.scss";
-
-
+import TopButton from '../topButtonComponent/TopButton';
 
 
 const CryptoDetails = () => {
-    const details = useSelector(getDetail);
-
     return (
         <>
             <header className={StylesCryptoDetails.header}>
@@ -24,6 +21,9 @@ const CryptoDetails = () => {
             </header>
             <section className={StylesCryptoDetails.rankBloc}>
                 <Rank />
+            </section>
+            <section className={StylesCryptoDetails.categoriesBloc}>
+                <Categories />
             </section>
             <section className={`${StylesCryptoDetails.dFlex} ${StylesCryptoDetails.coinBloc}`}>
                 <Coin />
@@ -40,22 +40,14 @@ const CryptoDetails = () => {
             <section className={`${StylesCryptoDetails.dFlex} ${StylesCryptoDetails.pricePercentageBloc}`}>
                 <PricePercentage />
             </section>
+            <section className={StylesCryptoDetails.descriptionBloc}>
+                <Description />
+            </section>
+            <section className={StylesCryptoDetails.marketBloc}>
+                <Market />
+            </section>
             <section>
-                <ul>
-                    <li>{useTagDelete(details.description?.en)}</li>
-                    <li>{details.tickers?.map((data, i) => {
-                        return (
-                            <div key={i}>
-                                {data.market.name}
-                                {data.base}
-                                {data.target}
-                                {data.last}
-                                {data.volume}
-                                {data.trust_score}
-                            </div>
-                        )
-                    })}</li>
-                </ul>
+                <TopButton />
             </section>
         </>
     )

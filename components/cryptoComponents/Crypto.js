@@ -8,7 +8,7 @@ import FilterList from './filterComponent/FilterList';
 import CryptoList from './cryptoList/CryptoList';
 import AddFavorite from './addFavorite/AddFavorite';
 import More from '../moreComponents/More';
-import TopButton from './topButtonComponent/TopButton';
+import TopButton from '../topButtonComponent/TopButton';
 
 
 

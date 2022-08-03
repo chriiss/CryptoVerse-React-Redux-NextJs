@@ -16,6 +16,12 @@
     }
 }
 
+@mixin boldStyle {
+    .bold {
+       font-weight: bold;
+    }
+}
+
 @mixin buttonStyle {
     background: none;
     border: 1px solid variables.$border-color;
@@ -36,6 +42,9 @@
     }
     .red {
         color: variables.$red;
+    }
+    .yellow {
+        color: variables.$yellow;
     }
 }
 
@@ -72,6 +81,13 @@
     @keyframes spin {
         to { transform: rotate(360deg); }
     }
+}
+
+@mixin tableStyle {
+    border: 1px solid variables.$border-color;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
 }
 
 @mixin paddingHeaderStyle {
@@ -256,11 +272,15 @@
     }
 }
 
+@mixin tableHeaderStyle {
+    margin-top: variables.$top-space;
+    margin-bottom: 0.25rem;
+}
+
 
 @mixin listStyle {
     .tableHeader {
-        margin-top: variables.$top-space;
-        margin-bottom: 0.25rem;
+        @include tableHeaderStyle();
         .coin {
             flex: 0.25;
             margin-left: variables.$left-space;
@@ -270,10 +290,7 @@
         }
     }
     .table {
-        border: 1px solid variables.$border-color;
-        border-collapse: collapse;
-        width: 100%;
-        table-layout: fixed;
+        @include tableStyle;
 
         @media (max-width: variables.$breakpoint-tablet) {
             font-size: variables.$font-size-tablet;
@@ -320,40 +337,40 @@
     }
 }
 
+@mixin cryptoDetailsSpaceStyle {
+    margin-bottom: variables.$top-space;
+    margin-left: variables.$left-space;
+    margin-right: variables.$left-space;
+}
+
 @mixin cryptoDetailsHeaderStyle {
     .header {
         @include paddingHeaderStyle();
     }
     .rankBloc {
-        background-color: variables.$border-color;
+        background-color: rgb(65, 65, 65);
         padding: variables.$left-space;
         border-radius: 30px;
-        width: 90px;
-        margin-bottom: variables.$top-space;
-        margin-left: variables.$left-space;
-        margin-right: variables.$left-space;
-        @media (max-width: variables.$breakpoint-tablet) {
-            width: 100px;
-        }
-        @media (max-width: variables.$breakpoint-mobile) {
-            width: 110px;
-        }
+        width: 125px;
+        @include cryptoDetailsSpaceStyle();
+    }
+    .categoriesBloc {
+        padding: variables.$left-space;
+        border-radius: 30px;
+        width: 100%;
+        @include cryptoDetailsSpaceStyle();
     }
     .coinBloc {
         gap: 15px;
-        margin-bottom: variables.$top-space;
         font-weight: bold;
-        margin-left: variables.$left-space;
-        margin-right: variables.$left-space;
+        @include cryptoDetailsSpaceStyle();
         div:nth-child(2), div:nth-child(3) {
             margin-top: 15px;
         }
     }
     .marketDataBloc {
         gap: 20px;
-        margin-bottom: variables.$top-space;
-        margin-left: variables.$left-space;
-        margin-right: variables.$left-space;
+        @include cryptoDetailsSpaceStyle();
     }
 
 
@@ -363,9 +380,7 @@
         grid-template-rows: repeat(3, 1fr);
         grid-column-gap: 30px;
         grid-row-gap: 30px;
-        margin-bottom: variables.$top-space;
-        margin-left: variables.$left-space;
-        margin-right: variables.$left-space;
+        @include cryptoDetailsSpaceStyle();
 
         div {
             @include infoCryptoStyle();
@@ -384,9 +399,7 @@
         grid-template-rows: repeat(2, 1fr);
         grid-column-gap: 30px;
         grid-row-gap: 30px;
-        margin-bottom: variables.$top-space;
-        margin-left: variables.$left-space;
-        margin-right: variables.$left-space;
+        @include cryptoDetailsSpaceStyle();
 
         div {
             @include infoCryptoStyle();
@@ -400,6 +413,10 @@
             vertical-align: middle;
         }
 
+        &_borderNone {
+            border-bottom: none !important;
+        }
+
         @media (max-width: variables.$breakpoint-tablet) {
             grid-template-columns: 1fr;
             grid-column-gap: 0px;
@@ -408,10 +425,8 @@
     }
 
     .pricePercentageBloc {
-        margin-bottom: variables.$top-space;
         justify-content: center;
-        margin-left: variables.$left-space;
-        margin-right: variables.$left-space;
+        @include cryptoDetailsSpaceStyle();
         @media(max-width: 913px) {
             overflow-x: scroll;
             justify-content: flex-start;
@@ -429,6 +444,53 @@
                 @include borderPriceChangePercentageStyle;
                 border-bottom: 1px solid variables.$border-color;
                  padding: .75rem 2.5rem .75rem 2.5rem;
+            }
+        }
+    }
+
+    .descriptionBloc {
+        @include cryptoDetailsSpaceStyle();
+    }
+    .tableHeader {
+        @include tableHeaderStyle();
+        .coin:nth-child(1) {
+            flex: 0.28;
+            @media (max-width: variables.$breakpoint-tablet) {
+                flex: 0.32;
+            }
+            @media (max-width: variables.$breakpoint-mobile) {
+                flex: 0.4;
+            }
+        }
+        .coin:nth-child(2) {
+            flex: 0.52;
+            @media (max-width: variables.$breakpoint-tablet) {
+                flex: 0.55;
+            }
+        }
+    }
+    .marketBloc {
+        @include cryptoDetailsSpaceStyle();
+
+        &_table {
+            @include tableStyle();
+
+            tbody {
+                tr {
+                    td {
+                        @include paddingHeaderStyle();
+                    }
+                }
+            }
+
+            &_elementPairs {
+                word-break: break-word;
+            }
+
+            &_element {
+                div {
+                    margin-top: variables.$left-space;
+                }
             }
         }
     }

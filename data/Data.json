@@ -75,6 +75,9 @@
             "hashtag": "#",
             "rank": "Rank"
         },
+        "categories": {
+            "categories": "Categories"
+        },
         "price_range": {
             "twentyFour_range": "24H Range"
         },
@@ -102,6 +105,19 @@
         "coin_max_min": {
             "ath": "Ath",
             "atl": "Atl"
+        },
+        "description": {
+            "description": "Description"
+        },
+        "market": {
+            "headerTable": {
+                "exchanges": "Exchanges",
+                "pairs": "Pairs",
+                "confidence": "Confidence Score"
+            },
+            "market": "Market",
+            "course": "Course",
+            "vol": "Vol 24h"
         }
     }
 }

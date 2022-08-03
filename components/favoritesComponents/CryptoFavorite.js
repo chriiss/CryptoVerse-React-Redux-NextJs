@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addFav, addDetail, getFav } from "../../store/Slice";
 import FavoriteList from './favoriteList/FavoriteList';
 import RemoveFavorite from "./removeFavorite/RemoveFavorite";
+import TopButton from '../topButtonComponent/TopButton';
 
 
 
@@ -37,9 +38,14 @@ const CryptoFavorite = () => {
         saveToCoinFav(newFavoriteList);
     }
     return (
-        <section>
-            <FavoriteList favoritesComponent={RemoveFavorite} handleFavoritesClick={removeFavoriteCoin} handleIdClick={(id)=> getCryptoDetails(id.id)} />
-        </section>
+        <>
+            <section>
+                <FavoriteList favoritesComponent={RemoveFavorite} handleFavoritesClick={removeFavoriteCoin} handleIdClick={(id)=> getCryptoDetails(id.id)} />
+            </section>
+            <section>
+                <TopButton />
+            </section>
+        </>
     )
 }
 
