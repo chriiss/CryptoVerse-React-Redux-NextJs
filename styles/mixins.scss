@@ -98,13 +98,13 @@
 }
 
 @mixin tableStyle {
-    border: 1px solid variables.$border-color;
     border-collapse: collapse;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
     margin-top: variables.$top-space * 0.75;
     table-layout: fixed;
+    box-shadow: 5px 5px 36px 7px rgba(0,0,0,0.66);
 }
 
 @mixin paddingHeaderStyle {
@@ -258,6 +258,7 @@
         border-bottom: 1px solid variables.$border-color;
         padding: 2px;
         outline: none;
+        background-color: variables.$primary-color;
         @media (max-width: variables.$breakpoint-tablet) {
             font-size: variables.$font-size-tablet;
         }
@@ -314,6 +315,10 @@
         }
         @media (max-width: variables.$breakpoint-mobile) {
             font-size: variables.$font-size-mobile;
+        }
+        tbody {
+            background-image: url("https://t4.ftcdn.net/jpg/02/08/56/85/360_F_208568531_HaKjz0XVz1oSOeAv4039jw4QyxEfVoid.jpg");
+            background-position: center;
         }
         .firstRow {
             margin-left: variables.$left-space;

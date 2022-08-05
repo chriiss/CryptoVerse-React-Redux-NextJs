@@ -7,6 +7,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     overflow-x: hidden;
+    background-color: variables.$primary-color;
 }
 
 a {
@@ -16,7 +17,6 @@ a {
 
 * {
   box-sizing: border-box;
-  background-color: variables.$primary-color;
   color: variables.$secondary-color;
 }
 
@@ -24,7 +24,7 @@ li {
   list-style-type: none;
 }
 
-h4 {
+h3 {
   border-bottom: 1px solid variables.$border-color;
   padding-bottom: variables.$left-space;
 }

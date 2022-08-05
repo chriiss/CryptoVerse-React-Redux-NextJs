@@ -10,7 +10,7 @@ const Description = () => {
     const dataCryptoDetails = dataJson.cryptoDetailsComponent;
     return(
         <>
-            <h4>{details.name} {dataCryptoDetails.description.description}</h4>
+            <h3>{details.name} {dataCryptoDetails.description.description}</h3>
             {useTagDelete(details.description?.en)}
         </>
     )

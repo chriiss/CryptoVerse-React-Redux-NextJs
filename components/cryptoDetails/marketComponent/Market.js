@@ -11,7 +11,7 @@ const Market = () => {
     const dataCryptoDetails = dataJson.cryptoDetailsComponent;
     return(
         <>
-            <h4>{details.name} {dataCryptoDetails.market.market}</h4>
+            <h3>{details.name} {dataCryptoDetails.market.market}</h3>
             <div className={`${StylesCryptoDetails.dFlex} ${StylesCryptoDetails.tableHeader}`}>
                 <div className={StylesCryptoDetails.coin}>{dataCryptoDetails.market.headerTable.exchanges}</div>
                 <div className={StylesCryptoDetails.coin}>{dataCryptoDetails.market.headerTable.pairs}</div>

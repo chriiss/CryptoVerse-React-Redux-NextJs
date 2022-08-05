@@ -66,7 +66,7 @@ const SearchBox = (props) => {
                 <Suggestions suggestions={suggestions} handleFilterSuggest={filterSuggest}/>
                 {visibleHistory &&
                     <div className={Styles.history}>
-                        <hr/>
+                        <hr></hr>
                         <button type="button" className={Styles.closeHistory} onClick={hideHistory}><CloseHistory /></button>
                         <h4>{dataJson.last}</h4>
                         {history.map((item, i) =>
