@@ -1,4 +1,4 @@
-Link to project: https://prismatic-lokum-9afc0e.netlify.app  (the project is not finished)
+Link to project: https://prismatic-lokum-9afc0e.netlify.app
 
 
 
