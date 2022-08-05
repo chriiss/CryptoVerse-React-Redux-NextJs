@@ -302,11 +302,8 @@
     .tableHeader {
         @include tableHeaderStyle();
         .coin {
-            flex: 0.25;
-            margin-left: 3rem;
-            @media (max-width: variables.$breakpoint-mobile) {
-                flex: 0.4;
-            }
+            flex: 0.23;
+            margin-left: 7%;
         }
     }
     .table {
