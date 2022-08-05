@@ -56,7 +56,7 @@ const CryptoList = (props) => {
 
 
     return(
-        <div>
+        <div className={Styles.cryptoList}>
             <div className={Styles.result}>{cryptoResult.length} {dataJson.result}</div>
             <div className={`${Styles.dFlex} ${Styles.tableHeader}`}>
                 <div className={Styles.coin}>{dataJson.cryptoListComponent.listHeader.coin}</div>

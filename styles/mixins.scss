@@ -293,6 +293,9 @@
 
 
 @mixin listStyle {
+    .cryptoList {
+        margin-bottom: 8.2rem;
+    }
     .tableHeader {
         @include tableHeaderStyle();
         .coin {
