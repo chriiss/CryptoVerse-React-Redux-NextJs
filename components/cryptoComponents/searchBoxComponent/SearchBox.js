@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
-import Image from 'next/image';
 import { useSelector, useDispatch } from "react-redux";
-import { addSearch, addSuggestion, addHistory, getSearch, getAllCryptos, getSuggestion, getHistory, getVisibleHistory, addVisibleHistory } from "../../../store/Slice";
+import { addSearch, addSuggestion, addHistory, getSearch, getAllCryptos, getSuggestion, getHistory, getVisibleHistory, addVisibleHistory, getSticky } from "../../../store/Slice";
+import HandleScroll from "../../handleScrollComponent/HandleScroll";
+import InputHome from "./inputHomeComponent/InputHome";
+import Suggestions from "./suggestionsComponent/Suggestions";
 import More from "../../moreComponents/More";
 import CloseHistory from "./closeHistoryComponent/CloseHistory";
 import dataJson from "../../../data/Data.json";
@@ -15,6 +17,7 @@ const SearchBox = (props) => {
     const history = useSelector(getHistory);
     const dispatch = useDispatch();
     const visibleHistory = useSelector(getVisibleHistory)
+    const sticky = useSelector(getSticky);
 
     useEffect(() => {
 		try {
@@ -57,33 +60,21 @@ const SearchBox = (props) => {
 
     return (
         <div>
-            <input className={Styles.search} type="search" value={query} placeholder="Enter Crypto" onChange={(e) => filterSearch(e.target.value)} onClick={visibilityHistory} />
-            {suggestions?.map((suggestion, i) =>
-                <div className={`${Styles.suggest}`} key={i} onClick={()=>filterSuggest(suggestion.name, suggestion.symbol, suggestion.market_cap_rank)}>
-                    <span>
-                        <Image src={suggestion.image} width={25} height={25} alt="crypto_icon"/>
-                    </span>
-                    <span>
-                        {suggestion.name}
-                    </span>
-                    <span>
-                        {suggestion.symbol}
-                    </span>
-                    <span>
-                        {"#" + suggestion.market_cap_rank}
-                    </span>
-                </div>
-            )}
-            {visibleHistory &&
-                <div className={Styles.history}>
-                <hr/>
-                    <button type="button" className={Styles.closeHistory} onClick={hideHistory}><CloseHistory /></button>
-                    <h4>{dataJson.last}</h4>
-                    {history.map((item, i) =>
-                        <div key={i}>{item} <span onClick={() => props.handleIdClick(item)}><More /></span></div>
-                    )}
-                </div>
-            }
+            <HandleScroll />
+            <div className={`${sticky ? `${Styles.onScroll}` : ''}`}>
+                <InputHome query={query} handleFilterSearch={(e) => filterSearch(e.target.value)} visibilityHistory={visibilityHistory} />
+                <Suggestions suggestions={suggestions} handleFilterSuggest={filterSuggest}/>
+                {visibleHistory &&
+                    <div className={Styles.history}>
+                        <hr/>
+                        <button type="button" className={Styles.closeHistory} onClick={hideHistory}><CloseHistory /></button>
+                        <h4>{dataJson.last}</h4>
+                        {history.map((item, i) =>
+                            <div key={i}>{item} <span onClick={() => props.handleIdClick(item)}><More /></span></div>
+                        )}
+                    </div>
+                }
+            </div>
         </div>
     )
 }

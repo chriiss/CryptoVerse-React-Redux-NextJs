@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from "react-redux";
 import Image from 'next/image';
 import dataJson from "../../../data/Data.json";
-import { getFav } from '../../../store/Slice';
+import { getFav, getSearch } from '../../../store/Slice';
 import UseFormatCount from '../../../hooks/UseFormatCount';
 import UseShortNumber from '../../../hooks/UseShortNumber';
 import MoreComponent from '../../moreComponents/More';
@@ -11,11 +11,16 @@ import FavStyles from '../../../styles/Favorite.module.scss';
 
 const FavoriteList = (props) => {
     const FavoriteComponent = props.favoritesComponent;
+    const query = useSelector(getSearch);
 	const favorite = useSelector(getFav);
+    const cryptoResultFav = favorite.filter((data)=>
+        data.name.toLowerCase().includes(query.toLowerCase()) ||
+        data.symbol.toLowerCase().includes(query.toLowerCase())
+    )
 
     return(
         <div className={FavStyles.favorite}>
-            {favorite.map((data, index) => (
+            {cryptoResultFav.map((data, index) => (
                 <table className={Styles.table} key={index}>
                     <tbody>
                         <tr>

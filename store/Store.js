@@ -14,5 +14,6 @@ export const store = configureStore({
         header: cryptosReducer,
         isButtonTopVisible: cryptosReducer,
         isVisibleHistory: cryptosReducer,
+        isSticky: cryptosReducer
     }
 })

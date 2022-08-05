@@ -1,5 +1,19 @@
 @use "./variables.scss" as variables;
 
+@mixin onScrollStyle {
+    .onScroll {
+      position: fixed;
+      width: 100%;
+      transition: all .2s ease-in-out;
+      background-color: rgb(1, 1, 29);
+      top: 0%;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      color: #ccc;
+      z-index: 9999;
+    }
+}
+
 @mixin flexStyle {
     .dFlex {
         display: flex;
@@ -319,6 +333,7 @@
 @mixin favoriteStyle {
     .favorite {
         margin-bottom: 8.4rem;
+        margin-top: variables.$top-space * 2;
     }
 }
 

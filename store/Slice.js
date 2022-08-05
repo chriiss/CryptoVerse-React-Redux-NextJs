@@ -13,6 +13,7 @@ const initialState = {
     isFetching: false,
     isButtonTopVisible: false,
     isVisibleHistory: false,
+    isSticky: false,
 }
 
 const cryptoSlice = createSlice({
@@ -51,6 +52,9 @@ const cryptoSlice = createSlice({
         },
         addVisibleHistory(state, action) {
             state.isVisibleHistory = action.payload;
+        },
+        addSticky(state, action) {
+            state.isSticky = action.payload;
         }
     }
 })
@@ -58,7 +62,7 @@ const cryptoSlice = createSlice({
 
 
 
-export const { addCryptos, addCryptosPage, addCryptosFetching, addSearch, addSuggestion, addFav, addHistory, addDetail, addHeader, addButtonTop, addVisibleHistory } = cryptoSlice.actions;
+export const { addCryptos, addCryptosPage, addCryptosFetching, addSearch, addSuggestion, addFav, addHistory, addDetail, addHeader, addButtonTop, addVisibleHistory, addSticky } = cryptoSlice.actions;
 export const getAllCryptos = (state) => state.cryptos.cryptos;
 export const getCryptosPage = (state) => state.page.page;
 export const getCryptosFetching = (state) => state.isFetching.isFetching;
@@ -70,4 +74,5 @@ export const getDetail = (state) => state.detail.detail;
 export const getHeader = (state) => state.header.header;
 export const getButtonTop = (state) => state.isButtonTopVisible.isButtonTopVisible;
 export const getVisibleHistory = (state) => state.isVisibleHistory.isVisibleHistory;
+export const getSticky = (state) => state.isSticky.isSticky;
 export default cryptoSlice.reducer;

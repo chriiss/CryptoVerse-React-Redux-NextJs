@@ -1,6 +1,6 @@
 @use "styles" as mixins;
 
-
+@include mixins.onScrollStyle();
 @include mixins.flexStyle();
 @include mixins.upperCaseStyle();
 @include mixins.lineStyle();

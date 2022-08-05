@@ -6,6 +6,7 @@ import { addFav, addDetail, getFav } from "../../store/Slice";
 import FavoriteList from './favoriteList/FavoriteList';
 import RemoveFavorite from "./removeFavorite/RemoveFavorite";
 import TopButton from '../topButtonComponent/TopButton';
+import SearchBoxFav from './searchBoxFavComponent/SearchBoxFav';
 
 
 
@@ -40,6 +41,7 @@ const CryptoFavorite = () => {
     return (
         <>
             <section>
+                <SearchBoxFav />
                 <FavoriteList favoritesComponent={RemoveFavorite} handleFavoritesClick={removeFavoriteCoin} handleIdClick={(id)=> getCryptoDetails(id.id)} />
             </section>
             <section>
