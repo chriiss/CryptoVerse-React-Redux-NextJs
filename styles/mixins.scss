@@ -100,7 +100,10 @@
 @mixin tableStyle {
     border: 1px solid variables.$border-color;
     border-collapse: collapse;
-    width: 100%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: variables.$top-space * 0.75;
     table-layout: fixed;
 }
 
@@ -300,7 +303,7 @@
         @include tableHeaderStyle();
         .coin {
             flex: 0.25;
-            margin-left: variables.$left-space;
+            margin-left: 3rem;
             @media (max-width: variables.$breakpoint-mobile) {
                 flex: 0.4;
             }
