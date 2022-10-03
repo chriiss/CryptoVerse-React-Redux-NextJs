@@ -34,6 +34,7 @@ const Crypto = () => {
 	};
 
     const addFavoriteCoin = (coin) => {
+        if (favorite.indexOf(coin) !== -1) return;
         const newFavoriteList = [...favorite, coin];
         dispatch(addFav(newFavoriteList));
         saveToCoinFav(newFavoriteList);
