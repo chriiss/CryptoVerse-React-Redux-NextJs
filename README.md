@@ -36,3 +36,24 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+# Features
+
+search bar that allows
+- search for a crypto
+- autocompletion of crypto by typing a letter
+- history of the last cryptos search
+
+
+Adding cryptos to favorites
+See the details of each crypto with react-router
+
+sorting of cryptos by
+- price
+- market cap
+- volume
+- percent 24h
+
+Infinite scroll
+
